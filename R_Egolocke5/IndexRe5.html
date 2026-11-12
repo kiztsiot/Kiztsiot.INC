@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egolocke 5 – R</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="StyleRe5.css">
+</head>
+<body>
+  <!-- ══ HEADER ══ -->
+  <header id="inicio">
+        <!-- Nav -->
+   <nav class="navi">
+    <!-- "back-btn"-->
+      <button class="nav-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      <button class="nav-btn" onclick="goTo('noti')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="20px"></span> Noticias</button>
+      <button class="nav-btn" onclick="goTo('images')"><span class="icon"></span> Imágenes</button>
+      <button class="nav-btn" onclick="goTo('gyro')"><span class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2619/2619182.png" height="20px"></span> Ruletas</button>
+      <button class="nav-btn" onclick="goTo('rulesofnatures')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/070/080/381/small/watercolor-yellow-ruler-free-png.png" height="9px"></span> Reglas</button>
+      <button class="nav-btn" onclick="goTo('guia')"><span class="icon"><img src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/cd/latest/20211230005045/Artwork_mapa_pueblo.png/640px-Artwork_mapa_pueblo.png" height="19px"></span> Guía</button>
+      <button class="nav-btn" onclick="goTo('recomba')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/050/702/533/small/rules-checklist-with-requirements-principles-and-strategy-illustration-png.png" height="20px"></span> Reglas Combate</button>
+      <button class="nav-btn" onclick="goTo('comba')"><span class="icon"><img src="https://pbs.twimg.com/media/GFwTGlgWYAA0KdD.png" height="20px"></span> Combates</button>
+   
+    </nav> 
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Split background -->
+    <div class="header-split">
+      <div class="split-rocket"></div>
+      <div class="split-silver"></div>
+    </div>
+
+    <!-- Center divider -->
+    <div class="header-divider"></div>
+
+
+    <!-- Title content -->
+    <div class="header-content">
+      <div class="version-badges">
+        <span class="badge-R">Pokémon</span>
+        <span class="badge-W">R</span>
+      </div>
+      <h1 class="header-main-title">Egolocke 5</h1>
+      <div class="header-subtitle">Pokémon Rojo Fuego</div>
+      <div class="creator-tag">Creado por KIZTSIOT INC</div>
+      <a href="../Index.html" class="back-btn">← Página Principal</a>
+    </div>
+        
+  </header>
+
+  <!-- ══ MAIN ══ -->
+  <main>
+
+    <!-- NOTICIAS -->
+    <div class="section-card" id="noti">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="40px"></div>
+        <h2>Noticias</h2>
+      </div>
+      <div class="section-body">
+        <div class="news-carousel">
+          <div class="news-track">
+            <div class="news-slide active">
+              <span class="news-tag">Actualización</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Fecha del Locke</h3>
+              <p>!Pokemon R Egolocke 5 se hara en Diciembre de 2027¡</p>
+            </div>
+            <div class="news-slide">
+              <span class="news-tag">Info</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Primer Combate Oficial</h3>
+              <p>Los combates se hara en enero de 2028.</p>
+            </div>
+            <div class="news-slide">
+              <span class="news-tag">Evento</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Asignacion de equipos</h3>
+              <p>A inicios de 2027 se asignaran los equipos.</p>
+            </div>
+          </div>
+          <div class="news-controls">
+            <button class="news-arrow" onclick="prevNews()">&#8592;</button>
+            <div class="news-dots" id="newsDots"></div>
+            <button class="news-arrow" onclick="nextNews()">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- IMAGENES -->
+    <div class="section-card" id="images">
+      <div class="section-header">
+        <div class="section-icon"></div>
+        <h2>Imágenes</h2>
+      </div>
+      <div class="section-body">
+        <div class="image-grid">
+          <img src="" alt="Imagen 1" class="grid-image">
+          <p>Descripción de la imagen 4</p>
+          <img src="" alt="Imagen 2" class="grid-image">
+          <p>Descripción de la imagen 4</p>
+          <img src="" alt="Imagen 3" class="grid-image">
+          <p>Descripción de la imagen 4</p>
+          <img src="" alt="Imagen 4" class="grid-image"> 
+          <p>Descripción de la imagen 4</p>
+      </div>
+    </div>
+
+
+    <!-- RULETAS -->
+    <div class="section-card" id="gyro">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://cdn-icons-png.flaticon.com/512/2619/2619182.png" height="37px"></div>
+        <h2>Ruletas</h2>
+      </div>
+      <div class="section-body">
+        <div class="roulette-grid">
+          <a href="ruelaegolock5/Rulelock5.html" class="roulette-btn"> Ruleta</a>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <!-- REGLAS DEL LOCKE -->
+    <div class="section-card" id="rulesofnatures">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/070/080/381/small/watercolor-yellow-ruler-free-png.png" height="11px"></div>
+        <h2>Reglas del Locke</h2>
+        <button class="nav-btn" onclick="goTo('juicio')">Sección Juicios (1 a 3)</button>
+        <button class="nav-btn" onclick="goTo('regen')">Sección general (4 a 16)</button>
+        <button class="nav-btn" onclick="goTo('requi')">Sección Equipos (17 a 20 )</button>
+        <button class="nav-btn" onclick="goTo('reotra')">Sección Otras cosas (21 a 22)</button>
+      </div>
+      <div class="section-body">
+        <ul class="rules-list">
+          <li id="juicio"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">1</button></span>a</li>
+          <li id="juicio"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">2</button></span>a</li>
+          <li id="juicio"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">3</button></span>a</li>
+          <li id="regen"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">4</button></span>a</li>
+          <li id="regen"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">5</button></span>a</li>
+          <li id="regen"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">6</button></span>a</li>
+          <li id="requi"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">7</button></span>a</li>
+          <li id="requi"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">8</button></span>a</li>
+          <li id="reotra"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">9</button></span>a</li>
+          <li id="reotra"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">10</button></span>a</li>
+        </ul>
+      <br>
+      <button class="nav-btn" onclick="goTo('rulesofnatures')">Secciones</button>
+      <br>
+      </div>
+    </div>
+
+    <!-- GUIA -->
+    <div class="section-card" id="guia">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/cd/latest/20211230005045/Artwork_mapa_pueblo.png/640px-Artwork_mapa_pueblo.png" height="25px"></div>
+        <h2>Guía</h2>
+      </div>
+      <div class="section-body">
+        <div class="guide-links">
+          <a href="https://www.wikidex.net/wiki/WikiDex" class="guide-link" target="_blank">📖 Wiki Pokémon</a>
+          <a href="https://pokemon.fandom.com/es/wiki/Gu%C3%ADa_de_Pok%C3%A9mon_Rojo_Fuego_y_Pok%C3%A9mon_Verde_Hoja" class="guide-link" target="_blank">🛤️ Rutas Rojo Fuego</a>
+        </div>
+          <div class="gym-region">
+            <h3> Gimnasios</h3>
+            <div class="gym-item"><span>1. Brock — Ciudad Plateada</span><span class="gym-level">Nv. 43–48</span></div>
+            <div class="gym-item"><span>2. Misty — Ciudad Celeste</span><span class="gym-level">Nv. 46–52</span></div>
+            <div class="gym-item"><span>3. Tte. Surge — Cto. Carmín</span><span class="gym-level">Nv. 45–51</span></div>
+            <div class="gym-item"><span>4. Erika — Ciudad Azulona</span><span class="gym-level">Nv. 45–51</span></div>
+            <div class="gym-item"><span>5. Janine — Ciudad Fucsia</span><span class="gym-level">Nv. 44–50</span></div>
+            <div class="gym-item"><span>6. Sabrina — Ciudad Azafrán</span><span class="gym-level">Nv. 48–54</span></div>
+            <div class="gym-item"><span>7. Blaine — Islas Espuma</span><span class="gym-level">Nv. 50–56</span></div>
+            <div class="gym-item"><span>8. Giovanni — Ciudad Verde</span><span class="gym-level">Nv. 55–60</span></div>
+          </div>
+          <br>
+          <div class="gym-region">
+            <h3> Alto mando</h3>
+            <div class="gym-item"><span>1. Lorelei </span><span class="gym-level">Nv. 51–54</span></div>
+            <div class="gym-item"><span>2. Bruno </span><span class="gym-level">Nv. 51–56</span></div>
+            <div class="gym-item"><span>3. Agatha </span><span class="gym-level">Nv. 53–58</span></div>
+            <div class="gym-item"><span>4. Lance </span><span class="gym-level">Nv. 54–60</span></div>
+            <div class="gym-item"><span>5. Campeon </span><span class="gym-level">Nv. 57–63</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGLAS DE COMBATE -->
+    <div class="section-card" id="recomba">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/050/702/533/small/rules-checklist-with-requirements-principles-and-strategy-illustration-png.png" height="35px"></div>
+        <h2>Reglas de los Combates</h2>
+      </div>
+      <div class="section-body">
+        <ul class="rules-list">
+          <li><span class="rule-num">1</span> Los combates serán en formato dobles.</li>
+          <li><span class="rule-num">2</span> Las rondas van a ser al mejor de 3.</li>
+          <li><span class="rule-num">3</span> Se podrán usar objetos de combate.</li>
+          <li><span class="rule-num">4</span> Antes de cada combate tienen que banear 2 Pokémon distintos.</li>
+          <li><span class="rule-num">5</span> No se puede usar un legendario o singular.</li>
+          <li><span class="rule-num">6</span>Los combates se harán después de la liga pokémon.</li>
+        </ul>
+        <br>
+      </div>
+    </div>
+
+    <!-- COMBATES -->
+    <div class="section-card" id="comba">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://pbs.twimg.com/media/GFwTGlgWYAA0KdD.png" height="30px"></div>
+        <h2>Combates</h2>
+        <div class="combat-card">
+            <div class="combat-num"> Equipo Fuego </div>
+            <div class="combat-info">
+              <div class="label">Integrantes:</div>
+              <div class="value">1. ...</div>
+              <div class="value">2. ...</div>
+            </div>
+            <div class="combat-vs">VS</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Integrantes</div>
+              <div class="value">1. ...</div>
+              <div class="value">2. ...</div>
+            </div>
+             <div class="equip-Agua"> Equipo Agua </div>  
+          </div>
+      </div>
+      <div class="section-body">
+        <div class="combat-list">
+          <div class="combat-card">
+            <div class="combat-num">C1</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+          <div class="combat-card">
+            <div class="combat-num">C2</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+          <div class="combat-card">
+            <div class="combat-num">C3</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+            <div class="combat-card">
+            <div class="combat-info">
+            </div>
+            <div class="combat-gana">Equipo ganador: 
+               <div class="combat-win"> --- </div>
+            </div>
+            <div class="combat-info" style="text-align:right">
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <br>
+    </div>
+
+  </main>
+
+  <footer>
+    Kiztsiot_inc &copy; 2027-2028
+  </footer>
+<script src="ScriptRe5.js"></script>
+</body>
+</html>

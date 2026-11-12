@@ -1,0 +1,793 @@
+       :root {
+      /* papel envejecido (washi) */
+      --paper: #e9ddbe;
+      --paper-2: #ddcfa6;
+      --paper-deep: #cfc094;
+
+      /* tinta sumi */
+      --ink: #221d16;
+      --ink-soft: #55503f;
+      --ink-faint: #8a8264;
+
+      /* noche índigo (Plata / Lugia) */
+      --indigo-night: #101f34;
+      --indigo-deep: #16283f;
+      --indigo: #33547a;
+      --indigo-light: #7f9cba;
+
+      /* madera al atardecer (Oro / Ho-Oh) */
+      --ochre-dark: #2a1c0c;
+      --ochre: #a9782f;
+      --ochre-light: #d1a765;
+
+      --moon: #f3ecc6;
+      --seal: #a3392c;
+
+      --line: rgba(34,29,22,0.16);
+      --line-strong: rgba(34,29,22,0.3);
+
+      /* alias de compatibilidad con nombres usados en el markup */
+      --gold: var(--ochre);
+      --gold-light: var(--ochre-light);
+      --gold-dark: var(--ochre-dark);
+      --silver: var(--indigo-light);
+      --silver-light: var(--moon);
+      --silver-dark: var(--indigo);
+      --dark: var(--paper);
+      --card-bg: var(--paper-2);
+      --section-bg: var(--paper);
+      --text: var(--ink);
+      --text-muted: var(--ink-soft);
+      --border-gold: rgba(169,120,47,0.35);
+      --border-silver: rgba(51,84,122,0.3);
+      --border: var(--line);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+
+      body {
+      font-family: 'Noto Sans JP', 'Nunito', sans-serif;
+      background: var(--paper);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grano de papel/veta de grabado */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(34,29,22,0.06) 1px, transparent 1px);
+      background-size: 3px 3px;
+      mix-blend-mode: multiply;
+    }
+
+    /* ══ SPLIT HERO HEADER — noche sobre Kioto ══ */
+    header {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header-split {
+      position: absolute;
+      inset: 0;
+      display: flex;
+    }
+
+    /* Lado cálido — tejados de madera al último sol (HeartGold) */
+    .split-gold {
+      flex: 1;
+      background: linear-gradient(160deg, var(--ochre-dark) 0%, #3a2610 45%, #1d130a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .split-gold::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(169,120,47,0.28) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 20%, rgba(209,167,101,0.14) 0%, transparent 50%);
+    }
+
+    /* Bruma que disuelve el tejado en el papel, como en el grabado */
+    .split-gold::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 150px;
+      background: linear-gradient(to top, var(--paper) 0%, rgba(233,221,190,0.45) 35%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Lado frío — cielo nocturno de Kioto (SoulSilver) */
+    .split-silver {
+      flex: 1;
+      background: linear-gradient(200deg, var(--indigo-deep) 0%, var(--indigo-night) 55%, #0b1522 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Bruma que disuelve el cielo en el papel */
+    .split-silver::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 150px;
+      background: linear-gradient(to top, var(--paper) 0%, rgba(233,221,190,0.45) 35%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Divisor central — el filo entre las dos ediciones */
+    .header-divider {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 90px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, rgba(209,167,101,0.6) 20%, rgba(209,167,101,0.9) 50%, rgba(127,156,186,0.9) 80%, transparent);
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .header-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(135deg, var(--ochre-light), var(--indigo-light));
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(163,57,44,0.45);
+    }
+
+    /* Mascotas */
+    .header-mascots {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 5;
+      pointer-events: none;
+      padding: 0 20px 60px;
+    }
+
+    #ho_oh {
+      height: 210px;
+      filter: drop-shadow(0 0 26px rgba(209,167,101,0.55)) drop-shadow(0 0 55px rgba(169,120,47,0.3)) sepia(0.15);
+      transform: scaleX(-1);
+      transition: transform 0.5s ease, filter 0.5s ease;
+      pointer-events: all;
+    }
+    #ho_oh:hover {
+      transform: scaleX(-1) scale(1.08) translateY(-10px);
+      filter: drop-shadow(0 0 36px rgba(209,167,101,0.8)) drop-shadow(0 0 70px rgba(169,120,47,0.45)) sepia(0.15);
+    }
+
+    #lugia {
+      height: 200px;
+      filter: drop-shadow(0 0 26px rgba(127,156,186,0.55)) drop-shadow(0 0 55px rgba(51,84,122,0.3)) saturate(0.8);
+      transition: transform 0.5s ease, filter 0.5s ease;
+      pointer-events: all;
+    }
+    #lugia:hover {
+      transform: scale(1.08) translateY(-10px);
+      filter: drop-shadow(0 0 36px rgba(127,156,186,0.8)) drop-shadow(0 0 70px rgba(51,84,122,0.45)) saturate(0.8);
+    }
+
+    /* Header content */
+    .header-content {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 0;
+    }
+
+    .version-badges {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    .badge-hg {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--ochre), var(--ochre-light), var(--ochre-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .badge-sep {
+      color: rgba(34,29,22,0.35);
+      font-size: 1.2rem;
+    }
+
+    .badge-ss {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--indigo), var(--indigo-light), var(--indigo-deep));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .header-main-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.15;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--ochre) 0%, var(--ochre-light) 35%, var(--moon) 50%, var(--indigo-light) 65%, var(--indigo) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+
+    .header-subtitle {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(209,167,101,0.75);
+      margin-bottom: 4px;
+    }
+
+    .creator-tag {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(127,156,186,0.6);
+      margin-bottom: 14px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(209,167,101,0.1);
+      border: 1px solid var(--border-gold);
+      color: var(--ochre-light);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .back-btn:hover {
+      background: var(--ochre);
+      color: var(--paper);
+      box-shadow: 0 0 20px rgba(169,120,47,0.4);
+    }
+
+    /* ══ NAV ══ */
+
+
+    nav {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 20px 24px;
+      background: linear-gradient(to bottom, transparent, var(--paper) 90%);
+      top: 0;
+      left: 0;
+    }
+
+
+
+    .nav-btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text);
+      background: rgba(34,29,22,0.04);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .bot-btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--paper);
+      background: var(--ochre);
+      border: 1px solid var(--border);
+      padding:4px 9px; /*8px 18px;*/
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-btn:hover {
+      background: linear-gradient(135deg, rgba(169,120,47,0.18), rgba(169,120,47,0.06));
+      border-color: var(--ochre);
+      color: var(--ochre-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(169,120,47,0.2);
+    }
+
+    .nav-btn .icon { font-size: 14px; }
+
+    /* ══ MAIN ══ */
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ══ SECTION CARDS — paneles de papel con marco de grabado ══ */
+    .section-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      position: relative;
+      transition: border-color 0.3s;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 10px 26px rgba(34,29,22,0.08);
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(169,120,47,0.5), transparent);
+    }
+
+    .section-card:hover { border-color: rgba(169,120,47,0.35); }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 30px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(34,29,22,0.02);
+    }
+
+    .section-icon {
+      font-size: 1.3rem;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(169,120,47,0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: 50%;
+    }
+
+    .section-header h2 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--ochre-dark), var(--ochre));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-body { padding: 28px 30px; }
+
+    /* ══ NOTICIAS ══ */
+    .news-carousel { position: relative; }
+
+    .news-track {
+      display: flex;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .news-slide {
+      min-width: 100%;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .news-slide.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--paper);
+      background: var(--seal);
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-bottom: 12px;
+    }
+
+    .news-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .news-slide h3 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .news-slide p {
+      font-size: 0.88rem;
+      color: rgba(34,29,22,0.75);
+      line-height: 1.65;
+    }
+
+    .news-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .news-arrow {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(34,29,22,0.04);
+      border: 1px solid var(--border);
+      color: var(--ochre);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+    }
+    .news-arrow:hover { background: var(--ochre); color: var(--paper); border-color: var(--ochre); }
+
+    .news-dots { display: flex; gap: 6px; }
+    .news-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .news-dot.active { background: var(--ochre); transform: scale(1.3); }
+
+    /* ══ RULETAS ══ */
+    .roulette-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .roulette-btn {
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      color: var(--paper);
+      background: linear-gradient(135deg, var(--ochre), var(--ochre-dark));
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+    }
+    .roulette-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(169,120,47,0.4);
+      background: linear-gradient(135deg, var(--ochre-light), var(--ochre));
+    }
+
+    /* ══ REGLAS ══ */
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .rules-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(34,29,22,0.02);
+      border: 1px solid var(--border);
+      border-left: 3px solid rgba(169,120,47,0.45);
+      border-radius: 0 8px 8px 0;
+      padding: 13px 18px;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .rules-list li:hover {
+      border-left-color: var(--ochre);
+      background: rgba(169,120,47,0.05);
+    }
+
+    .rule-num {
+      min-width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ochre), var(--ochre-dark));
+      color: var(--paper);
+      font-weight: 900;
+      font-size: 0.72rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-family: 'Shippori Mincho', serif;
+    }
+
+    /* ══ GUÍA ══ */
+    .guide-links { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+
+    .guide-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text);
+      background: rgba(34,29,22,0.04);
+      border: 1px solid var(--line-strong);
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .guide-link:hover {
+      background: rgba(169,120,47,0.1);
+      border-color: var(--ochre);
+      color: var(--ochre-dark);
+      transform: translateY(-2px);
+    }
+
+    .gym-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(max-width: 600px) { .gym-grid { grid-template-columns: 1fr; } }
+
+    .gym-region {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+
+    .gym-region::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(169,120,47,0.55), transparent);
+    }
+
+    .gym-region:last-child::before {
+      background: linear-gradient(90deg, transparent, rgba(51,84,122,0.55), transparent);
+    }
+
+    .gym-region h3 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ochre-dark);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gym-region:last-child h3 { color: var(--indigo); }
+
+    .gym-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(34,29,22,0.06);
+      color: var(--text);
+    }
+    .gym-item:last-child { border-bottom: none; }
+
+    .gym-level {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      background: rgba(34,29,22,0.05);
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ══ COMBATES ══ */
+    .combat-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .combat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: border-color 0.2s;
+    }
+    .combat-card:hover { border-color: var(--border-gold); }
+
+    .combat-num {
+      min-width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(169,120,47,0.1);
+      border: 1px solid var(--border-gold);
+      color: var(--ochre-dark);
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+      .equip-plata {
+      min-width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(51,84,122,0.1);
+      border: 1px solid var(--border-silver);
+      color: var(--indigo);
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+      .combat-win {
+      min-width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(34,29,22,0.05);
+      border: 1px solid var(--line-strong);
+      color: var(--ink-faint);
+      font-family: 'Shippori Mincho', serif;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    .combat-info { flex: 1; }
+    .combat-info .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .combat-info .value {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .combat-vs {
+      color: var(--ochre-dark);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .combat-gana {
+      color: var(--ochre-dark);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      /*opacity: 0.7;*/
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      text-align: center;
+      padding: 28px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: var(--section-bg);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; right: 0;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ochre), transparent);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--paper); }
+    ::-webkit-scrollbar-thumb { background: rgba(169,120,47,0.35); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(169,120,47,0.55); }
+
+    @media (max-width: 600px) {
+      .header-mascots img { height: 130px; }
+      header { min-height: 320px; }
+      .section-body { padding: 20px 18px; }
+      .section-header { padding: 16px 18px; }
+    }

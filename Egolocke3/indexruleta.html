@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ruleta r... Egolocke 3</title>
+  <link rel="stylesheet" href="style_ruleta.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Ruleta Pokémon Quetzal Egolocke 3
+      Resmaterizada
+    </h1>
+        <br>
+        <br>
+    <div class="header">
+      <div>
+        <a href="../Index.html"><button>Pagina principal</button></a>
+                <br>
+        <br>
+        <p class="lead">Gira la ruleta y sufre o ¿no?. </p>
+      </div>
+    </div>
+        <br>
+        <br>
+    <div class="main">
+      <div class="left">
+        <div class="wheel-wrap">
+          <div class="pointer" title="Indicador"></div>
+          <div id="wheel" class="wheel" aria-hidden="true"></div>
+                    <div class="center">
+            <div style="text-align:center">
+              <div id="currentGym" style="font-weight:700">Inicio</div>
+              <div id="currentResult">Listo para girar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="controls">
+          <label>Selecciona gimnasio</label>
+          <select id="gymSelect">
+              <option value="1">Inicio</option>
+            <option id="rok" value="2">1° — Roca</option>
+            <option id="luc" value="3">2° — Lucha</option>
+            <option id="ele" value="4">3° — Eléctrico</option>
+            <option id="fua" value="5">4° — Fuego</option>
+            <option id="no" value="6">5° — Normal</option>
+            <option id="vol" value="7">6° — Volador</option>
+            <option id="pi" value="8">7° — Psíquico</option>
+            <option id="ag" value="9">8° — Agua</option>
+            <option id="lipo" value="10">Liga Pokémon</option>
+          </select>
+
+          <div style="display:flex;gap:10px;align-items:center">
+            <button id="spinBtn" class="spin-btn">Tirar</button>
+            <label style="font-size:13px">Velocidad:</label>
+            <input id="speed" type="range" min="1" max="6" value="4">
+          </div>
+
+          <div style="display:flex;gap:10px">
+                  <button id="previewBtn" class="btn-secondary">Opciones</button>
+            <button id="resetBtn" class="btn-danger">Resetear posición</button>
+          </div>
+
+          <div class="list" id="optionsList" aria-live="polite">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="small"><p>Kiztsiot_inc©2025-2026.</p></div>
+    </div>
+  </div>
+
+  <script src="script_ruleta.js"></script>
+</body>
+</html>

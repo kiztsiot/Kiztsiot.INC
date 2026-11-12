@@ -1,0 +1,1018 @@
+/* =============================================
+   KIZTSIOT INC — "El Segador" (Reaper Edition)
+   Estilo inspirado en la ilustración de la Muerte
+   halftone/grabado, grises ceniza + rojo sangre.
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* base */
+  --void: #0a0908;
+  --void-2: #050403;
+  --panel: #161310;
+  --panel-2: #201a15;
+
+  /* bone / ceniza */
+  --bone: #d9d3c4;
+  --bone-dim: #8c8577;
+  --ash: #55504a;
+  --ash-light: #8f887c;
+
+  /* sangre */
+  --blood: #5a0f16;
+  --blood-mid: #7d141d;
+  --blood-bright: #c22a32;
+  --blood-glow: rgba(194,42,50,0.35);
+
+  /* niebla (único uso: estado "online") */
+  --fog: #7a9186;
+
+  --line: rgba(217,211,196,0.10);
+  --line-strong: rgba(217,211,196,0.22);
+
+  --radius: 3px;
+  --radius-lg: 6px;
+  --shadow: 0 16px 44px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 26px var(--blood-glow);
+
+  /* alias retro-compatibles usados por variantes de tarjetas */
+  --gold: var(--bone);
+  --purple: var(--blood-mid);
+  --silver: var(--ash-light);
+}
+
+/* ---- RESET & BASE ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Trebuchet MS', sans-serif;
+  background-color: var(--void);
+  color: var(--bone);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Textura halftone/grano de fondo, como el punteado de la ilustración */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(217,211,196,0.055) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mix-blend-mode: overlay;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+
+/* ---- FONDO ANIMADO (cenizas) ---- */
+.bg-particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50%;
+  background: var(--blood-bright);
+  box-shadow: 0 0 6px var(--blood-glow);
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.25; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
+}
+
+/* ---- HEADER ---- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 9, 8, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-strong);
+  padding: 0;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--bone);
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px rgba(194,42,50,0.35);
+}
+
+.logo-inc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blood-bright);
+  letter-spacing: 3px;
+  background: rgba(194,42,50,0.1);
+  border: 1px solid rgba(194,42,50,0.4);
+  padding: 2px 8px;
+  border-radius: var(--radius);
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-btn {
+  background: rgba(217,211,196,0.05) !important;
+  color: var(--bone) !important;
+  border: 1px solid var(--line-strong) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-btn:hover {
+  background: rgba(194,42,50,0.14) !important;
+  border-color: var(--blood-bright) !important;
+  box-shadow: 0 0 12px rgba(194,42,50,0.25) !important;
+  color: var(--bone) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ---- BOTONES BASE ---- */
+.btn {
+  background: linear-gradient(135deg, var(--blood), var(--blood-mid));
+  color: var(--bone);
+  border: 1px solid rgba(217,211,196,0.15);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.08);
+  transition: left 0.3s ease;
+}
+
+.btn:hover::before { left: 100%; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(194,42,50,0.35);
+}
+
+.back-btn {
+  background: rgba(217,211,196,0.05) !important;
+  border: 1px solid var(--line-strong) !important;
+  color: var(--bone) !important;
+}
+
+.back-btn:hover {
+  background: rgba(194,42,50,0.14) !important;
+}
+
+/* ---- SECCIÓN HERO ---- */
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(90,15,22,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(85,80,74,0.18) 0%, transparent 55%),
+    linear-gradient(180deg, var(--void) 0%, var(--panel) 100%);
+  overflow: hidden;
+}
+
+/* Cinta de sangre — eco de la túnica roja de la ilustración */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 12%;
+  width: 6%;
+  height: 130%;
+  background: linear-gradient(180deg, transparent 0%, var(--blood) 25%, var(--blood-mid) 55%, transparent 100%);
+  filter: blur(2px);
+  opacity: 0.45;
+  transform: skewX(-6deg);
+  pointer-events: none;
+}
+
+.hero-content { max-width: 700px; position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(194,42,50,0.1);
+  border: 1px solid rgba(194,42,50,0.4);
+  color: var(--blood-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  padding: 6px 18px;
+  border-radius: var(--radius);
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(194,42,50,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(194,42,50,0); }
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 3px;
+  color: var(--bone);
+  text-shadow: 0 0 40px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+
+.hero-title .accent {
+  color: var(--blood-bright);
+  text-shadow: 0 0 30px rgba(194,42,50,0.6);
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--bone-dim);
+  margin-bottom: 36px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blood-bright), transparent);
+  margin: 0 auto 40px;
+}
+
+.hero-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mini-card {
+  background: rgba(217,211,196,0.04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 110px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--bone-dim);
+}
+
+.mini-card:hover {
+  background: rgba(194,42,50,0.1);
+  border-color: var(--blood-bright);
+  transform: translateY(-4px);
+  color: var(--bone);
+  box-shadow: 0 8px 24px rgba(194,42,50,0.18);
+}
+
+.mini-icon { font-size: 1.8rem; filter: grayscale(1) brightness(1.4); }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  font-size: 1.5rem;
+  color: var(--blood-bright);
+  animation: bounce 2s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ---- SECCIONES BASE ---- */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 70px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  color: var(--blood-bright);
+  background: rgba(194,42,50,0.08);
+  border: 1px solid rgba(194,42,50,0.3);
+  padding: 6px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: var(--bone);
+  margin-bottom: 14px;
+  border-bottom: 2px solid rgba(194,42,50,0.3);
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-desc {
+  color: var(--bone-dim);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.section-footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ---- MINECRAFT SECTION ---- */
+.section-minecraft {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(85,80,74,0.14) 0%, transparent 70%),
+    linear-gradient(180deg, var(--panel) 0%, var(--void-2) 100%);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Empty state Minecraft */
+.mc-empty-state {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mc-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(194,42,50,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(194,42,50,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: gridMove 8s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 32px 32px; }
+}
+
+.mc-empty-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 50px 30px;
+}
+
+/* Creeper pixel-art CSS */
+.mc-creeper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  filter: grayscale(0.6);
+}
+
+.creeper-face {
+  width: 80px;
+  background: var(--ash);
+  border-radius: 4px;
+  padding: 10px 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.creeper-eyes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.creeper-eye {
+  width: 14px;
+  height: 14px;
+  background: var(--void);
+  border-radius: 2px;
+}
+
+.creeper-mouth {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.creeper-mouth-row {
+  display: flex;
+  gap: 2px;
+}
+
+.cm-block {
+  width: 10px;
+  height: 10px;
+  background: var(--ash);
+  border-radius: 1px;
+}
+
+.cm-block.dark {
+  background: var(--void);
+  border-radius: 2px;
+}
+
+.mc-empty-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  color: var(--bone);
+  margin-bottom: 10px;
+}
+
+.mc-empty-text {
+  color: var(--bone-dim);
+  margin-bottom: 28px;
+}
+
+.mc-progress-bar {
+  width: 200px;
+  height: 8px;
+  background: rgba(217,211,196,0.1);
+  border-radius: 50px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mc-progress-fill {
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, var(--blood), var(--blood-bright));
+  border-radius: 50px;
+  animation: loading 2s ease-in-out infinite alternate;
+}
+
+@keyframes loading {
+  0% { width: 15%; opacity: 0.6; }
+  100% { width: 65%; opacity: 1; }
+}
+
+/* ---- D&D / PRONTO SECTION ---- */
+.section-dnd {
+  background: linear-gradient(180deg, var(--void-2) 0%, var(--panel) 100%);
+}
+
+.about-container {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--bone-dim);
+}
+
+.coming-soon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 40px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 4px;
+  color: var(--bone-dim);
+  text-transform: uppercase;
+}
+
+.cs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blood-bright);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.cs-dot:last-child { animation-delay: 0.5s; }
+
+/* ---- RULETAS SECTION ---- */
+.section-ruletas {
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(194,42,50,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 20%, rgba(85,80,74,0.16) 0%, transparent 60%),
+    linear-gradient(180deg, var(--panel) 0%, var(--void) 100%);
+  border-top: 1px solid var(--line);
+}
+
+/* Grid de 3 columnas para las ruletas */
+.ruletas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Tarjeta de ruleta — lápida/placa conmemorativa */
+.ruleta-card {
+  position: relative;
+  background: rgba(10, 9, 8, 0.85);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg) var(--radius-lg) 2px 2px;
+  padding: 36px 28px 32px;
+  text-align: center;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+.ruleta-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(194,42,50,0.5);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 30px rgba(194,42,50,0.15);
+}
+
+.ruleta-glow {
+  position: absolute;
+  top: -40px; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ruleta-card:hover .ruleta-glow { opacity: 1; }
+
+.ruleta-number {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.35;
+}
+
+.ruleta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px !important;
+  text-transform: uppercase;
+}
+
+.ruleta-divider {
+  width: 50px;
+  height: 2px;
+  margin: 14px auto;
+  border-radius: 2px;
+}
+
+.ruleta-desc {
+  color: var(--bone-dim);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  min-height: 38px;
+}
+
+.ruleta-link { text-decoration: none; }
+
+.ruleta-btn {
+  width: 100%;
+  padding: 12px 20px !important;
+  font-size: 1rem !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Egolocke 3 — placa de hueso/acero (edición pasada) */
+.ego3 { border-color: rgba(143, 136, 124, 0.3); }
+.ego3:hover { border-color: rgba(143, 136, 124, 0.6); box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 30px rgba(143, 136, 124, 0.15); }
+.ego3 .ruleta-glow { background: radial-gradient(circle, rgba(143, 136, 124, 0.25), transparent); }
+.ego3 .ruleta-number { color: var(--ash-light); }
+.ego3 .ruleta-label { color: var(--bone) !important; }
+.ego3 .ruleta-divider { background: linear-gradient(90deg, transparent, var(--ash-light), transparent); }
+#linkego3 {
+  background: linear-gradient(135deg, #3a362f, #55504a) !important;
+  color: var(--bone) !important;
+  border: 1px solid rgba(143,136,124,0.35) !important;
+}
+#linkego3:hover { box-shadow: 0 6px 20px rgba(85,80,74,0.5) !important; }
+
+/* Egolocke 4 — la edición vigente, el filo de la guadaña */
+.ego4 {
+  border-color: rgba(194,42,50,0.4);
+  background: rgba(10, 9, 8, 0.9);
+}
+.ego4:hover { border-color: rgba(194,42,50,0.7); box-shadow: 0 20px 50px rgba(0,0,0,0.55), 0 0 40px rgba(194,42,50,0.22); }
+.ego4 .ruleta-glow { background: radial-gradient(circle, rgba(194,42,50,0.3), transparent); }
+.ego4 .ruleta-number { color: var(--blood-bright); }
+.ego4 .ruleta-label { color: var(--bone) !important; }
+.ego4 .ruleta-divider { background: linear-gradient(90deg, transparent, var(--blood-bright), transparent); }
+
+.featured {
+  border-color: rgba(194,42,50,0.5) !important;
+  box-shadow: 0 0 0 1px rgba(194,42,50,0.12), inset 0 1px 0 rgba(194,42,50,0.1);
+  padding-top: 56px !important;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--blood), var(--blood-bright));
+  color: var(--bone);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 18px;
+  border-radius: 0 0 4px 4px;
+  white-space: nowrap;
+}
+
+#linkego4 {
+  background: linear-gradient(135deg, var(--blood), var(--blood-bright)) !important;
+  color: var(--bone) !important;
+  border: 1px solid rgba(194,42,50,0.4) !important;
+}
+#linkego4:hover { box-shadow: 0 6px 20px rgba(194,42,50,0.5) !important; }
+
+/* Proyecto Score — todavía sin lápida, tumba sin marcar */
+.ego5 { border-color: rgba(85, 80, 74, 0.35); border-style: dashed; }
+.ego5:hover { border-color: rgba(143, 136, 124, 0.6); box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.ego5 .ruleta-glow { background: radial-gradient(circle, rgba(85, 80, 74, 0.25), transparent); }
+.ego5 .ruleta-number { color: var(--ash); }
+.ego5 .ruleta-label { color: var(--bone-dim) !important; }
+.ego5 .ruleta-divider { background: linear-gradient(90deg, transparent, var(--ash), transparent); }
+
+.score-placeholder {
+  display: inline-block;
+  background: rgba(85,80,74,0.08);
+  border: 1px dashed rgba(143,136,124,0.4);
+  color: var(--bone-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  background: rgba(5, 4, 3, 0.95);
+  border-top: 1px solid var(--line);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.footer-inner { max-width: 400px; margin: 0 auto; }
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--bone);
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.footer-logo span {
+  color: var(--blood-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  margin-left: 6px;
+}
+
+h5 {
+  color: rgba(217,211,196,0.5);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.footer-sub {
+  color: rgba(217,211,196,0.25);
+  font-size: 0.8rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .ruletas-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .featured { padding-top: 56px !important; }
+
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav { justify-content: center; }
+
+  .hero { min-height: 80vh; }
+
+  .hero-cards { flex-direction: column; align-items: center; }
+
+  .hero::before { display: none; }
+}
+
+@media (max-width: 500px) {
+  nav { gap: 6px; }
+  .nav-btn { font-size: 0.8rem !important; padding: 7px 12px !important; }
+}
+
+/* ---- NOTICIAS CARRUSEL ---- */
+.news-carousel {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.news-track {
+  position: relative;
+  min-height: 200px;
+}
+
+.news-slide {
+  display: none;
+  background: rgba(217,211,196,0.035);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  text-align: left;
+  animation: slideFade 0.4s ease;
+}
+
+.news-slide.active {
+  display: block;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.news-slide .news-tag {
+  display: inline-block;
+  background: var(--blood-bright);
+  color: var(--bone);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: var(--radius);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.news-slide .news-date {
+  font-size: 0.8rem;
+  color: rgba(217,211,196,0.45);
+  margin-bottom: 8px;
+}
+
+.news-slide h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bone);
+  margin-bottom: 10px;
+}
+
+.news-slide p {
+  color: rgba(217,211,196,0.7);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.news-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.news-arrow {
+  background: rgba(217,211,196,0.06);
+  border: 1px solid var(--line-strong);
+  color: var(--bone);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.news-arrow:hover {
+  background: rgba(194,42,50,0.15);
+  border-color: var(--blood-bright);
+}
+
+.news-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.news-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(217,211,196,0.2);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.news-dot.active {
+  background: var(--blood-bright);
+  transform: scale(1.3);
+}
+
+/* ---- MINECRAFT SERVIDORES ---- */
+.mc-servers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.mc-server-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(217,211,196,0.035);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.mc-server-card:hover {
+  background: rgba(217,211,196,0.06);
+  border-color: rgba(194,42,50,0.3);
+}
+
+.mc-server-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(194,42,50,0.08);
+  border-radius: var(--radius);
+  filter: grayscale(1) brightness(1.3);
+}
+
+.mc-server-info {
+  flex: 1;
+}
+
+.mc-server-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--bone);
+  margin-bottom: 6px;
+}
+
+.mc-server-details {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.mc-server-ip,
+.mc-server-port {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: rgba(217,211,196,0.5);
+}
+
+.mc-server-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.mc-server-status.offline {
+  background: rgba(194,42,50,0.12);
+  color: var(--blood-bright);
+  border: 1px solid rgba(194,42,50,0.3);
+}
+
+#seronline{
+  background: rgba(122,145,134,0.14);
+  color: var(--fog);
+  border: 1px solid rgba(122,145,134,0.3);
+}
+
+.mc-server-status.online {
+  background: rgba(122,145,134,0.14);
+  color: var(--fog);
+  border: 1px solid rgba(122,145,134,0.3);
+}
+
+@media (max-width: 600px) {
+  .mc-server-card { flex-wrap: wrap; }
+  .mc-server-status { width: 100%; text-align: center; }
+  .news-slide { padding: 22px 18px; }
+}

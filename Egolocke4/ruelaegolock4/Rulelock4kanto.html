@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ruleta Pokémon Quetzal Egolocke 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="Rulelock4stylokanto.css">
+</head>
+<body>
+<div class="card">
+  <h1>Ruleta Pokémon heartgold & soulsilver<br>Egolocke 4 — Kanto</h1>
+  <p class="subtitle">Gira la ruleta y sufre o… ¿no?</p>
+
+  <div class="main">
+    <!-- WHEEL -->
+    <div class="left">
+      <div class="wheel-wrap">
+        <!-- pointer SVG -->
+        <svg class="pointer" width="30" height="36" viewBox="0 0 30 36">
+          <polygon points="15,36 0,2 30,2" fill="#05361e" stroke="var(--gold)" stroke-width="2.5"/>
+          <polygon points="15,30 4,4 26,4"  fill="#09592e" opacity=".6"/>
+        </svg>
+
+        <canvas id="wheel" width="360" height="360"></canvas>
+
+        <div class="hub">
+          <div id="currentGym">Inicio</div>
+        </div>
+      </div>
+
+      <div class="result-box">
+        <div id="currentResult">Listo para girar</div>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="right">
+      <div>
+        <a href="../IndexRE4.html"><button>← Página principal</button></a>
+        <a href="Rulelock4.html"><button>Johto</button></a>
+      </div>
+
+      <div>
+        <label for="gymSelect">Selecciona gimnasio</label>
+        <select id="gymSelect">
+          <option value="1">Inicio</option>
+          <option id="rok" value="2">1° — Roca</option>
+          <option id="ag"  value="3">2° — Agua</option>
+          <option id="ele" value="4">3° — Eléctrico</option>
+          <option id="pla" value="5">4° — Planta</option>
+          <option id="ven"  value="6">5° — Veneno</option>
+          <option id="pi"  value="7">6° — Psíquico</option>
+          <option id="fua" value="8">7° — Fuego</option>
+          <option id="tie"  value="9">8° — Tierra</option>
+          <option id="lipo" value="10">Rojo</option>
+          <option value="11">Wipe</option>
+        </select>
+      </div>
+ <!--
+      <div>
+        <label for="gymSelect">Selecciona gimnasio</label>
+        <select id="gymSelect">
+          <option value="1">Inicio</option>
+          <option id="rok" value="2">1° — Roca</option>
+          <option id="luc" value="3">2° — Lucha</option>
+          <option id="ele" value="4">3° — Eléctrico</option>
+          <option id="fua" value="5">4° — Fuego</option>
+          <option id="no"  value="6">5° — Normal</option>
+          <option id="vol" value="7">6° — Volador</option>
+          <option id="pi"  value="8">7° — Psíquico</option>
+          <option id="ag"  value="9">8° — Agua</option>
+          <option id="lipo" value="10">Liga Pokémon</option>
+        </select>
+      </div>
+    -->
+<!--
+
+    -->
+      <div class="speed-wrap">
+        <label for="speed">Velocidad de giro: <span id="speedLabel">4</span></label>
+        <input id="speed" type="range" min="1" max="6" value="4">
+      </div>
+
+      <div class="row">
+        <button id="spinBtn" class="spin-btn">🎯 Tirar</button>
+      </div>
+
+      <div class="row">
+        <button id="previewBtn" class="btn-secondary"> Opciones</button>
+        <button id="resetBtn"   class="btn-danger">↺ Resetear</button>
+      </div>
+
+      <div class="list-wrap" id="listWrap" style="display:none">
+        <div class="list-title">Opciones del gimnasio</div>
+        <div class="list" id="optionsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Kiztsiot_inc © 2025-2027</div>
+</div>
+
+<script src="ScripctRulelock4Kanto.js"></script>
+</body>
+</html>

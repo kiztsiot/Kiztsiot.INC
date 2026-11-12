@@ -1,0 +1,394 @@
+    :root {
+      --green-dark: #0d4a30;
+      --green-mid:  #16694f;
+      --green-light:#27aa69;
+      --green-pale: #338951;
+      --red:        #c23131;
+      --blue-dark:  #0b2a6e;
+      --blue-mid:   #1144a4;
+      --gold:       #f5c518;
+      --white:      #f0f5f1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: linear-gradient(135deg, rgb(50, 25, 148) 0%, rgb(24, 137, 62) 50%, rgb(207, 5, 5) 100%);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+    }
+
+    @keyframes bgShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(0,0,0,.35);
+      border-radius: 32px;
+      box-shadow: 0 12px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+      padding: 40px;
+      width: 100%;
+      max-width: 1060px;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 0 #000, 0 0 20px rgba(245,197,24,.4);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      opacity: .7;
+      margin-bottom: 32px;
+    }
+
+    .main {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    /* ── WHEEL SIDE ── */
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 380px;
+    }
+
+    .wheel-wrap {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* outer decorative ring */
+    .wheel-wrap::before {
+      content:'';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #ef110a 0deg 5deg,
+        #7a0400 5deg 10deg,
+        #ef110a 10deg 15deg,
+        #7a0400 15deg 20deg,
+        #ef110a 20deg 25deg,
+        #7a0400 25deg 30deg,
+        #ef110a 30deg 35deg,
+        #7a0400 35deg 40deg,
+        #ef110a 40deg 45deg,
+        #7a0400 45deg 50deg,
+        #ef110a 50deg 55deg,
+        #7a0400 55deg 60deg,
+        #ef110a 60deg 65deg,
+        #7a0400 65deg 70deg,
+        #ef110a 70deg 75deg,
+        #7a0400 75deg 80deg,
+        #ef110a 80deg 85deg,
+        #7a0400 85deg 90deg,
+        #ef110a 90deg 95deg,
+        #7a0400 95deg 100deg,
+        #ef110a 100deg 105deg,
+        #7a0400 105deg 110deg,
+        #ef110a 110deg 115deg,
+        #7a0400 115deg 120deg,
+        #ef110a 120deg 125deg,
+        #7a0400 125deg 130deg,
+        #ef110a 130deg 135deg,
+        #7a0400 135deg 140deg,
+        #ef110a 140deg 145deg,
+        #7a0400 145deg 150deg,
+        #ef110a 150deg 155deg,
+        #7a0400 155deg 160deg,
+        #ef110a 160deg 165deg,
+        #7a0400 165deg 170deg,
+        #ef110a 170deg 175deg,
+        #7a0400 175deg 180deg,
+        #ef110a 180deg 185deg,
+        #7a0400 185deg 190deg,
+        #ef110a 190deg 195deg,
+        #7a0400 195deg 200deg,
+        #ef110a 200deg 205deg,
+        #7a0400 205deg 210deg,
+        #ef110a 210deg 215deg,
+        #7a0400 215deg 220deg,
+        #ef110a 220deg 225deg,
+        #7a0400 225deg 230deg,
+        #ef110a 230deg 235deg,
+        #7a0400 235deg 240deg,
+        #ef110a 240deg 245deg,
+        #7a0400 245deg 250deg,
+        #ef110a 250deg 255deg,
+        #7a0400 255deg 260deg,
+        #ef110a 260deg 265deg,
+        #7a0400 265deg 270deg,
+        #ef110a 270deg 275deg,
+        #7a0400 275deg 280deg,
+        #ef110a 280deg 285deg,
+        #7a0400 285deg 290deg,
+        #ef110a 290deg 295deg,
+        #7a0400 295deg 300deg,
+        #ef110a 300deg 305deg,
+        #7a0400 305deg 310deg,
+        #ef110a 310deg 315deg,
+        #7a0400 315deg 320deg,
+        #ef110a 320deg 325deg,
+        #7a0400 325deg 330deg,
+        #ef110a 330deg 335deg,
+        #7a0400 335deg 340deg,
+        #ef110a 340deg 345deg,
+        #7a0400 345deg 350deg,
+        #ef110a 350deg 355deg,
+        #7a0400 355deg 360deg
+      );
+      z-index: 0;
+      box-shadow: 0 0 30px rgba(245,197,24,.35), inset 0 0 10px rgba(0,0,0,.5);
+    }
+
+    canvas#wheel {
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+      width: 360px;
+      height: 360px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.5);
+    }
+
+    /* center hub */
+    .hub {
+      position: absolute;
+      z-index: 3;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #3a7fd4, #0b2060);
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 16px rgba(17,68,164,.8), inset 0 2px 4px rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      cursor: default;
+      line-height: 1.2;
+    }
+
+    .hub #currentGym {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 7px;
+      color: var(--gold);
+      text-shadow: 0 0 6px rgba(245,197,24,.6);
+    }
+
+    /* pointer arrow at top */
+    .pointer {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.6));
+    }
+
+    .result-box {
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 12px 20px;
+      text-align: center;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    #currentResult {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      text-shadow: 0 0 8px rgba(245,197,24,.4);
+    }
+
+    /* ── CONTROLS SIDE ── */
+    .right {
+      width: 300px;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: .75;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    select {
+      background: rgb(53, 20, 220);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 14px;
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+    }
+    select:focus { border-color: rgb(255, 255, 255); }
+
+    #rok  { background-color: #5a5a5a; }
+    #luc  { background-color: #8b3a0f; }
+    #ele  { background-color: #fcda00; color:#000; }
+    #fua  { background-color: #c86400; }
+    #no   { background-color: #8b7d6b; color:#000; }
+    #vol  { background-color: #1a6dbf; }
+    #pi   { background-color: #c20071; }
+    #ag   { background-color: #1a3abf; }
+    #dra  { background-color: #0906b9; }
+    #pla  { background-color: #0ece2b; }
+    #ven  { background-color: #a816d1; }
+    #ace  { background-color: #9f9f9f; }
+    #tie  { background-color: #d58c48; }
+    #sin { background-color: #131313; }
+    #bi  { background-color: #82ec58; }
+    #hi  { background-color: #1fc6e3; }
+    #fan  { background-color: #740f6d; }
+    #lipo { background-color: #8b0000; }
+    #rojo  { background-color: #ff2626; }
+
+    .row { display: flex; gap: 10px; align-items: center; }
+
+    button {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      transition: transform .1s, filter .1s;
+    }
+    button:active { transform: scale(.96); filter: brightness(.9); }
+
+    .spin-btn {
+      flex: 1;
+      background: linear-gradient(135deg, #3535e0, #10188f);
+      color: #fff;
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(49, 76, 194, 0.5);
+      letter-spacing: .04em;
+    }
+    .spin-btn:hover { filter: brightness(1.1); }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #3535e0, #10188f);
+      color: #fff;
+    }
+    .btn-danger {
+      background: #10188f;
+      color: #ffffff;
+    }
+
+    .speed-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: #10188f;
+      cursor: pointer;
+    }
+
+    .list-wrap {
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .list-title {
+      background: rgba(0,0,0,.2);
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .7;
+    }
+    .list {
+      padding: 8px 10px;
+      max-height: 240px;
+      overflow: auto;
+    }
+    .list p {
+      margin: 4px 0;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      background: rgba(255,255,255,.04);
+      border-left: 3px solid transparent;
+      transition: background .15s;
+    }
+    .list p:hover { background: rgba(255,255,255,.09); }
+    .list p.highlight {
+      background: rgba(245,197,24,.18);
+      border-left-color: var(--gold);
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      opacity: .45;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a button {
+      background: rgba(255,255,255,.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 12px;
+      padding: 7px 14px;
+    }
+    a button:hover { background: rgba(255,255,255,.18); }
+
+    /* result celebration flash */
+    @keyframes pulse {
+      0%,100% { text-shadow: 0 0 8px rgba(245,197,24,.4); }
+      50%      { text-shadow: 0 0 28px rgba(245,197,24,.95); }
+    }
+    .celebrating { animation: pulse .6s ease-in-out 4; }

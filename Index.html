@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIZTSIOT INC</title>
+  <link rel="stylesheet" href="Style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="bg-particles" id="particles"></div>
+
+  <header>
+    <div class="header-inner">
+      <div id="logo">
+        <span class="logo-text">KIZTSIOT</span>
+        <span class="logo-inc">INC</span>
+      </div>
+      <nav>
+        <button class="btn nav-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon">⌂</span> Menú
+        </button>
+        <button class="btn nav-btn" onclick="document.getElementById('noti').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="16px" alt="8px"></span> Noticias
+        </button>
+        <button class="btn nav-btn" onclick="document.getElementById('minecraft').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon"> <img src="https://www.pngarts.com/files/4/Minecraft-PNG-Picture.png" height="16px" alt="8px"><!--⛏--></span> Minecraft
+        </button>
+        <button class="btn nav-btn" onclick="document.getElementById('D&D').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon">🎲</span> Pronto
+        </button>
+        <button class="btn nav-btn" onclick="document.getElementById('Ruletas').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1280px-Pok%C3%A9_Ball_icon.svg.png" height="16px" alt="5px"><!--🎡--></span> Egolocke
+        </button>
+        <button class="btn nav-btn" onclick="document.getElementById('noder').scrollIntoView({behavior:'smooth'})">
+          <span class="btn-icon"><img src="https://cdn-icons-png.flaticon.com/512/4854/4854246.png" height="16px" alt="8px"></span> Proyectos dif
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INICIO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">Bienvenido</div>
+      <h1 class="hero-title">KIZTSIOT <span class="accent">INC</span></h1>
+      <p class="hero-sub">Tu portal de proyectos del gamming y de juegos de rol</p>
+      <div class="hero-divider"></div>
+      <div class="hero-cards">
+        <div class="mini-card" onclick="document.getElementById('noder').scrollIntoView({behavior:'smooth'})">
+          <span class="mini-icon"><img src="https://cdn-icons-png.flaticon.com/512/4854/4854246.png" height="30px" alt="8px"></span>
+          <span>Proyectos dif</span>
+        </div>
+        <div class="mini-card" onclick="document.getElementById('minecraft').scrollIntoView({behavior:'smooth'})">
+          <span class="mini-icon"><img src="https://www.pngarts.com/files/4/Minecraft-PNG-Picture.png" height="30px" alt="8px"></span>
+          <span>Servidores</span>
+        </div>
+        <div class="mini-card" onclick="document.getElementById('Ruletas').scrollIntoView({behavior:'smooth'})">
+          <span class="mini-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1280px-Pok%C3%A9_Ball_icon.svg.png" height="40px" alt="8px"></span>
+          <span>Egolocke</span>
+        </div>
+        <br>
+        <div class="mini-card" onclick="document.getElementById('D&D').scrollIntoView({behavior:'smooth'})">
+          <span class="mini-icon">🎲</span>
+          <span>Pronto</span>
+        </div>
+        <div class="mini-card" onclick="document.getElementById('noti').scrollIntoView({behavior:'smooth'})">
+          <span class="mini-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="30px" alt="8px"></span>
+          <span>Noticias</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↓</div>
+  </section>
+  <!-- Noticias -->
+   <section id="noti" class="hero">
+    <div class="section-header">
+      <div class="section-tag"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="13PX" alt="8px"> NOVEDADES</div>
+      <h2>Noticias</h2>
+    </div>
+    <div class="section-body">
+      <div class="news-carousel">
+        <div class="news-track" id="newsTrack">
+
+          <div class="news-slide active">
+            <span class="news-tag">Proximamente</span>
+            <div class="news-date">📅 28 de diciembre de 2026</div>
+            <h3>Egolocke 4</h3>
+            <p>En diciembre comienza la cuarta edicion del Egolocke que se hará en pokemon soulsilver y heartgold. ¡Preparate!</p>
+          </div>
+
+          <div class="news-slide">
+            <span class="news-tag">Proximamente</span>
+            <div class="news-date">📅 En julio</div>
+            <h3>Universo Cobbelmon</h3>
+            <p>Universo Cobbelmon proximo servidor para minecraft java.</p>
+          </div>
+
+          <div class="news-slide">
+            <span class="news-tag">Info</span>
+            <div class="news-date">📅 En desarrollo</div>
+            <h3>Nuevos proyectos</h3>
+            <p>Estan en desarrollo proximos proyectos como un nuevo servidor de minecraft, el proximo Egolocke, dungeons and dragons y más.</p>
+          </div>
+
+        </div>
+
+        <div class="news-controls">
+          <button class="news-arrow" onclick="prevNews()">&#8592;</button>
+          <div class="news-dots" id="newsDots"></div>
+          <button class="news-arrow" onclick="nextNews()">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="section-footer">
+      <button class="btn back-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">⌂ Volver al Menú</button>
+    </div>
+   </section>
+    
+
+  <!-- MINECRAFT -->
+  <section id="minecraft" class="section-minecraft">
+    <div class="section-header">
+      <div class="section-tag">⛏ SERVIDORES</div>
+      <h2>Servidores de Minecraft</h2>
+    </div>
+
+    <div class="mc-servers-list">
+      <div class="mc-server-card">
+        <div class="mc-server-icon">⛏</div>
+        <div class="mc-server-info">
+          <div class="mc-server-name">Liberoalvitro.aternos.me</div>
+          <div class="mc-server-details">
+            <span class="mc-server-ip">🌐 Liberoalvitro.aternos.me</span>
+            <span class="mc-server-port">🔌 Puerto: 55727</span>
+          </div>
+        </div>
+        <div id="seronline" class="mc-server-status offline">Activo</div>
+      </div>
+
+      <div class="mc-server-card">
+        <div class="mc-server-icon">⛏</div>
+        <div class="mc-server-info">
+          <div class="mc-server-name">UniversoCobbelmon.aternos.me</div>
+          <div class="mc-server-details">
+            <span class="mc-server-ip">🌐 UniversoCobbelmon.aternos.me</span>
+            <span class="mc-server-port">🔌 Puerto: -----</span>
+          </div>
+        </div>
+        <div class="mc-server-status offline">Inactivo</div>
+      </div>
+
+      <div class="mc-server-card">
+        <div class="mc-server-icon">⛏</div>
+        <div class="mc-server-info">
+          <div class="mc-server-name">Nombre del servidor</div>
+          <div class="mc-server-details">
+            <span class="mc-server-ip">🌐 dirección.del.servidor</span>
+            <span class="mc-server-port">🔌 Puerto: -----</span>
+          </div>
+        </div>
+        <div class="mc-server-status offline">Inactivo</div>
+      </div>
+    </div>
+
+    <div class="section-footer">
+      <button class="btn back-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">⌂ Volver al Menú</button>
+    </div>
+  </section>
+
+  <!-- PRONTO -->
+  <section id="D&D" class="section-dnd">
+    <div class="section-header">
+      <div class="section-tag"> 🎲 PRÓXIMAMENTE</div>
+      <h2>Pronto</h2>
+      <p class="section-desc">Algo nuevo está por llegar a Kiztsiot Inc.</p>
+    </div>
+    <div id="aboutContainer" class="about-container"></div>
+    <div class="coming-soon-badge">
+      <span class="cs-dot"></span>
+      <span>En desarrollo</span>
+      <span class="cs-dot"></span>
+    </div>
+    <div class="section-footer">
+      <button class="btn back-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">⌂ Volver al Menú</button>
+    </div>
+  </section>
+
+  <!-- RULETAS -->
+  <section id="Ruletas" class="section-ruletas">
+    <div class="section-header">
+      <div class="section-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1280px-Pok%C3%A9_Ball_icon.svg.png" height="10px" alt="2px"> EGOLOCKE</div>
+      <!--<h2>Lockes</h2>-->
+      <p class="section-desc">Ediciones del egolocke:</p>
+    </div>
+
+    <div class="ruletas-grid">
+      <!-- Egolocke 3 -->
+      <div class="ruleta-card ego3">
+        <div class="ruleta-glow"></div>
+        <div class="ruleta-number">03</div>
+        <p id="RULEGO3" class="ruleta-label">Egolocke 3<img src="https://i.pinimg.com/originals/b5/7d/a8/b57da82ef021a7a8ace9afcb988b826f.png" height="20px" alt="2px"></p>
+        <div class="ruleta-divider"></div>
+        <p class="ruleta-desc">Ruleta resmaterizada de la tercera edicion del egolocke (2025/2026)</p>
+        <a href="Egolocke3/indexruleta.html" class="ruleta-link">
+          <button id="linkego3" class="btn ruleta-btn"> Molino</button>
+        </a>
+      </div>
+
+      <!-- Egolocke 4 -->
+      <div class="ruleta-card ego4 featured">
+        <div class="featured-badge"> Activo</div>
+        <div class="ruleta-glow"></div>
+        <div class="ruleta-number">04</div>
+        <p id="RULEGO4" class="ruleta-label">Egolocke 4<img src="https://gamefaqs.gamespot.com/a/faqs/86/75486-55.png" height="20px" alt="2px"></p>
+        <div class="ruleta-divider"></div>
+        <p class="ruleta-desc">Pagina oficial de la cuarta edicion del egolocke que se hara el 28/12/2026</p>
+        <a href="Egolocke4/IndexRE4.html" class="ruleta-link">
+          <button id="linkego4" class="btn ruleta-btn"> Página del Locke</button>
+        </a>
+      </div>
+
+      <!-- Proyecto Score -->
+      <div class="ruleta-card ego5">
+        <div class="ruleta-glow"></div>
+        <div class="ruleta-number">05</div>
+        <p id="RULEGO5" class="ruleta-label">Proyecto Score <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Team_Rocket_Logo.svg/960px-Team_Rocket_Logo.svg.png?_=20230504173525" height="20px" alt="2px"></p>
+        <div class="ruleta-divider"></div>
+        <p class="ruleta-desc">Proxima edicion del egolocke que se hara en pokemon rojo y verde</p>
+        <div class="score-placeholder">2027</div>
+      </div>
+    </div>
+
+    <div class="section-footer">
+      <button class="btn back-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">⌂ Volver al Menú</button>
+    </div>
+  </section>
+
+<!--otros proyectos-->
+
+  <section id="noder" class="section-dnd">
+    <div class="section-header">
+      <div class="section-tag">? PRÓXIMAMENTE</div>
+      <h2>Otros proyectos</h2>
+      <p class="section-desc">Algo nuevo está por llegar a Kiztsiot Inc.</p>
+    </div>
+    <div id="aboutContainer" class="about-container"></div>
+    <div class="coming-soon-badge">
+      <span class="cs-dot"></span>
+      <span>En desarrollo</span>
+      <span class="cs-dot"></span>
+    </div>
+    <div class="section-footer">
+      <button class="btn back-btn" onclick="document.getElementById('home').scrollIntoView({behavior:'smooth'})">⌂ Volver al Menú</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">KIZTSIOT<span>INC</span></div>
+      <h5>Kiztsiot_inc © 2026</h5>
+      <p class="footer-sub">Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="Script.js" defer></script>
+  <script>
+    // Partículas de fondo
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDelay = Math.random() * 15 + 's';
+      p.style.animationDuration = (10 + Math.random() * 20) + 's';
+      p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+      p.style.opacity = (0.1 + Math.random() * 0.4);
+      container.appendChild(p);
+    }
+  </script>
+</body>
+</html>

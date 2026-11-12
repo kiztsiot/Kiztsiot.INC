@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&display=swap');
+
+/* ═══════════════════════════════════════════════════════════
+   Rulelock 4 — Kanto
+   Inspirado en "Pagoda de Yasaka" (Seihō Takeuchi): pintura a la
+   tinta sobre papel. Todo en tonos de tinta y bruma, con un único
+   acento: el sello rojo del artista.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --washi:     #f4edd2;   /* papel */
+  --washi-dk:  #e6dfc0;   /* papel sombreado */
+  --sumi:      #1f1f1d;   /* tinta */
+  --sumi-2:    #3a3a37;   /* tinta diluida */
+  --sumi-3:    #5c5e59;   /* gris humo */
+  --mist:      #a9aca5;   /* bruma */
+  --hanko:     #b5452d;   /* sello rojo */
+
+  /* nombres originales que usa el HTML (puntero SVG) */
+  --gold:      var(--washi);
+  --white:     var(--washi);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Fondo: papel arriba, bruma y lago de tinta abajo ── */
+body {
+  font-family: 'Exo 2', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  color: var(--sumi);
+  background: linear-gradient(to bottom, #efe7c6 0%, #e1ddc9 38%, #a9aca5 68%, #55574f 100%);
+  background-attachment: fixed;
+}
+
+/* colinas entre la bruma */
+body::before {
+  content: '';
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 58vh;
+  z-index: 0;
+  pointer-events: none;
+  clip-path: polygon(0 58%, 10% 50%, 24% 38%, 38% 34%, 50% 42%, 62% 50%, 76% 44%, 88% 36%, 100% 46%, 100% 100%, 0 100%);
+  background: linear-gradient(to bottom, rgba(110,114,108,.55) 0%, rgba(60,62,58,.9) 100%);
+}
+body::after {
+  content: '';
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 42vh;
+  z-index: 0;
+  pointer-events: none;
+  clip-path: polygon(0 70%, 14% 62%, 30% 58%, 46% 66%, 64% 60%, 82% 66%, 100% 56%, 100% 100%, 0 100%);
+  background: linear-gradient(to bottom, rgba(31,31,29,.55), rgba(31,31,29,.95));
+}
+
+/* ── Tarjeta: hoja de papel washi ── */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1060px;
+  padding: 44px 40px 36px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f7f1d9 0%, var(--washi) 55%, var(--washi-dk) 100%);
+  border: 1px solid rgba(31,31,29,.3);
+  border-radius: 2px;
+  box-shadow: 0 22px 60px rgba(20,20,18,.45);
+}
+.card > * { position: relative; z-index: 1; }
+
+/* la pagoda y su reflejo, apenas visibles en el papel */
+.card::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  bottom: -40px;
+  height: 118%;
+  aspect-ratio: 300 / 700;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .2;
+  background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 700%22%3E%0A%3Cdefs%3E%0A%3Cfilter id=%22w%22 x=%22-10%25%22 y=%22-10%25%22 width=%22120%25%22 height=%22120%25%22%3E%3CfeGaussianBlur stdDeviation=%221.1%22/%3E%3C/filter%3E%0A%3Cfilter id=%22r%22 x=%22-10%25%22 y=%22-10%25%22 width=%22120%25%22 height=%22120%25%22%3E%3CfeGaussianBlur stdDeviation=%224.5 2%22/%3E%3C/filter%3E%0A%3ClinearGradient id=%22f%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22 stop-opacity=%22.55%22/%3E%3Cstop offset=%221%22 stop-color=%22%23fff%22 stop-opacity=%220%22/%3E%3C/linearGradient%3E%0A%3Cmask id=%22m%22%3E%3Crect x=%220%22 y=%22344%22 width=%22300%22 height=%22356%22 fill=%22url%28%23f%29%22/%3E%3C/mask%3E%0A%3C/defs%3E%0A%3Cg filter=%22url%28%23w%29%22%3E%3Crect x=%22147%22 y=%228%22 width=%226%22 height=%2264%22 fill=%22%232e2e2b%22/%3E%3Crect x=%22143%22 y=%2240%22 width=%2214%22 height=%225%22 fill=%22%232e2e2b%22/%3E%3Crect x=%22135%22 y=%2292%22 width=%2230%22 height=%2222%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%22115,88 125,96 175,96 185,88 168,80 132,80%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22128%22 y=%22122%22 width=%2244%22 height=%2232%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%22100,118 110,126 190,126 200,118 175,110 125,110%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22120%22 y=%22162%22 width=%2260%22 height=%2242%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2285,158 95,166 205,166 215,158 182,150 118,150%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22112%22 y=%22212%22 width=%2276%22 height=%2252%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2270,208 80,216 220,216 230,208 190,200 110,200%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22105%22 y=%22272%22 width=%2290%22 height=%2262%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2255,268 65,276 235,276 245,268 198,260 102,260%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%2295%22 y=%22330%22 width=%22110%22 height=%2214%22 fill=%22%231d1d1b%22 opacity=%22.9%22/%3E%3C/g%3E%0A%3Cg mask=%22url%28%23m%29%22%3E%3Cg filter=%22url%28%23r%29%22 transform=%22translate%280 688%29 scale%281 -1%29%22%3E%3Crect x=%22147%22 y=%228%22 width=%226%22 height=%2264%22 fill=%22%232e2e2b%22/%3E%3Crect x=%22143%22 y=%2240%22 width=%2214%22 height=%225%22 fill=%22%232e2e2b%22/%3E%3Crect x=%22135%22 y=%2292%22 width=%2230%22 height=%2222%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%22115,88 125,96 175,96 185,88 168,80 132,80%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22128%22 y=%22122%22 width=%2244%22 height=%2232%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%22100,118 110,126 190,126 200,118 175,110 125,110%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22120%22 y=%22162%22 width=%2260%22 height=%2242%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2285,158 95,166 205,166 215,158 182,150 118,150%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22112%22 y=%22212%22 width=%2276%22 height=%2252%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2270,208 80,216 220,216 230,208 190,200 110,200%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%22105%22 y=%22272%22 width=%2290%22 height=%2262%22 fill=%22%233a3a36%22 opacity=%22.85%22/%3E%3Cpolygon points=%2255,268 65,276 235,276 245,268 198,260 102,260%22 fill=%22%231d1d1b%22 opacity=%22.93%22/%3E%3Crect x=%2295%22 y=%22330%22 width=%22110%22 height=%2214%22 fill=%22%231d1d1b%22 opacity=%22.9%22/%3E%3C/g%3E%3C/g%3E%0A%3C/svg%3E") center / contain no-repeat;
+}
+
+/* sello rojo del autor */
+.card::before {
+  content: '関\A東';
+  white-space: pre;
+  position: absolute;
+  top: 26px;
+  right: 34px;
+  z-index: 2;
+  width: 46px;
+  padding: 5px 0;
+  text-align: center;
+  font-family: 'Shippori Mincho B1', serif;
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.1;
+  color: var(--washi);
+  background: var(--hanko);
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  opacity: .92;
+}
+
+/* ── Título ── */
+h1 {
+  margin: 0 70px 8px 0;
+  font-family: 'Shippori Mincho B1', serif;
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 1.45;
+  letter-spacing: .05em;
+  text-align: left;
+  color: var(--sumi);
+}
+
+.subtitle {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 15px;
+  text-align: left;
+  color: var(--sumi-3);
+  margin-bottom: 34px;
+}
+
+.main {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ── Lado de la ruleta ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 300px;
+}
+
+.wheel-wrap {
+  position: relative;
+  width: min(380px, 100%);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* aro exterior: círculo ensō trazado con pincel, con su hueco */
+.wheel-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  z-index: 0;
+  background: conic-gradient(from 18deg, #141412 0deg, #2c2c29 120deg, #55574f 230deg, #9a9d96 310deg, rgba(154,157,150,0) 338deg, #141412 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 11px), #000 calc(100% - 10px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 11px), #000 calc(100% - 10px));
+}
+
+canvas#wheel {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 20px);
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--washi), 0 8px 24px rgba(20,20,18,.45);
+}
+
+/* centro de la ruleta */
+.hub {
+  position: absolute;
+  z-index: 3;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #4a4a46, var(--sumi) 70%);
+  border: 3px solid var(--washi);
+  box-shadow: 0 0 0 1px var(--sumi), 0 3px 12px rgba(20,20,18,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: default;
+  line-height: 1.2;
+}
+
+.hub #currentGym {
+  font-family: 'Shippori Mincho B1', serif;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 0 6px;
+  color: var(--washi);
+}
+
+/* puntero */
+.pointer {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  filter: drop-shadow(0 2px 4px rgba(20,20,18,.55));
+}
+.pointer polygon:first-child { fill: var(--hanko); stroke: var(--washi); }
+.pointer polygon:last-child  { fill: #d0634a; }
+
+.result-box {
+  background: rgba(31,31,29,.07);
+  border: 0;
+  border-bottom: 2px solid var(--sumi);
+  border-radius: 0;
+  padding: 12px 20px;
+  text-align: center;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+#currentResult {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sumi);
+}
+
+/* ── Lado de controles ── */
+.right {
+  width: 300px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sumi);
+}
+
+select {
+  background: var(--sumi);
+  color: var(--washi);
+  border: 1px solid var(--sumi);
+  border-radius: 2px;
+  padding: 8px 10px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+select:focus { border-color: var(--hanko); }
+
+/* colores de cada tipo en la lista desplegable (sin cambios) */
+  #rok  { background-color: #5a5a5a; }
+  #luc  { background-color: #8b3a0f; }
+  #ele  { background-color: #fcda00; color:#000; }
+  #fua  { background-color: #c86400; }
+  #no   { background-color: #8b7d6b; color:#000; }
+  #vol  { background-color: #1a6dbf; }
+  #pi   { background-color: #c20071; }
+  #ag   { background-color: #1a3abf; }
+  #dra  { background-color: #0906b9; }
+  #pla  { background-color: #0ece2b; }
+  #ven  { background-color: #a816d1; }
+  #ace  { background-color: #9f9f9f; }
+  #tie  { background-color: #d58c48; }
+  #sin { background-color: #131313; }
+  #bi  { background-color: #82ec58; }
+  #hi  { background-color: #1fc6e3; }
+  #fan  { background-color: #740f6d; }
+  #lipo { background-color: #8b0000; }
+  #rojo  { background-color: #ff2626; }
+
+.row { display: flex; gap: 10px; align-items: center; }
+
+button {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .1s, background-color .2s;
+}
+button:active { transform: scale(.97); }
+
+.spin-btn {
+  flex: 1;
+  background: var(--sumi);
+  color: var(--washi);
+  font-size: 16px;
+  padding: 12px;
+  letter-spacing: .04em;
+}
+.spin-btn:hover { background: var(--hanko); }
+
+.btn-secondary {
+  background: var(--sumi-3);
+  color: #fff;
+}
+.btn-secondary:hover { background: var(--sumi-2); }
+
+.btn-danger {
+  background: transparent;
+  color: var(--sumi);
+  border-color: var(--sumi);
+}
+.btn-danger:hover { background: rgba(31,31,29,.1); }
+
+.speed-wrap { display: flex; flex-direction: column; gap: 6px; }
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--sumi);
+  cursor: pointer;
+}
+
+/* navegación */
+a { color: inherit; text-decoration: none; }
+a button {
+  background: var(--washi-dk);
+  color: var(--sumi);
+  border-color: rgba(31,31,29,.45);
+  font-size: 12px;
+  padding: 7px 14px;
+}
+a button:hover { background: #d8d0ae; }
+
+/* ── Lista de opciones ── */
+.list-wrap {
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(31,31,29,.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.list-title {
+  background: var(--sumi);
+  color: var(--washi);
+  padding: 8px 12px;
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+.list {
+  padding: 8px 10px;
+  max-height: 240px;
+  overflow: auto;
+}
+.list p {
+  margin: 4px 0;
+  padding: 7px 10px;
+  border-radius: 1px;
+  font-size: 12px;
+  background: rgba(31,31,29,.05);
+  border-left: 3px solid transparent;
+  transition: background .15s;
+}
+.list p:hover { background: rgba(31,31,29,.11); }
+.list p.highlight {
+  background: rgba(181,69,45,.16);
+  border-left-color: var(--hanko);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--sumi-2);
+  opacity: .7;
+}
+
+/* ── Accesibilidad ── */
+button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 3px solid var(--hanko);
+  outline-offset: 2px;
+}
+
+/* destello al salir un resultado */
+@keyframes pulse {
+  0%,100% { text-shadow: 0 0 0 rgba(181,69,45,0); }
+  50%     { text-shadow: 0 0 14px rgba(181,69,45,.85); }
+}
+.celebrating { animation: pulse .6s ease-in-out 4; }
+@media (prefers-reduced-motion: reduce) { .celebrating { animation: none; } }
+
+/* ── Móvil ── */
+@media (max-width: 520px) {
+  .card { padding: 24px 16px; }
+  h1 { font-size: 17px; margin-right: 54px; }
+  .card::before { width: 38px; font-size: 16px; top: 18px; right: 14px; }
+  .card::after { opacity: .14; }
+  .right { width: 100%; min-width: 0; }
+}

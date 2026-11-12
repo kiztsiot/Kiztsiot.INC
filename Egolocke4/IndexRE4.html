@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egolocke 4 – HG/SS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="StyleRE4.css">
+</head>
+<body>
+  <!-- ══ HEADER ══ -->
+  <header id="inicio">
+    <!-- Split background -->
+    <div class="header-split">
+      <div class="split-gold"></div>
+      <div class="split-silver"></div>
+    </div>
+
+    <!-- Center divider -->
+    <div class="header-divider"></div>
+
+    <!-- Mascots -->
+    <div class="header-mascots">
+      <img id="ho_oh"
+           src="https://www.pngplay.com/wp-content/uploads/11/Ho-Oh-Pokemon-Transparent-Free-PNG.png"
+           ><!--alt="Ho-Oh"-->
+      <img id="lugia"
+           src="https://i.pinimg.com/originals/4a/b0/a1/4ab0a1c9a6c425bbf248000dc3f6d5a7.png"
+           alt="Lugia">
+    </div>
+
+    <!-- Title content -->
+    <div class="header-content">
+      <div class="version-badges">
+        <span class="badge-hg">HeartGold</span>
+        <span class="badge-sep">✦</span>
+        <span class="badge-ss">SoulSilver</span>
+      </div>
+      <h1 class="header-main-title">Egolocke 4</h1>
+      <div class="header-subtitle">Pokémon HG / SS</div>
+      <div class="creator-tag">Creado por KIZTSIOT INC</div>
+      <a href="../Index.html" class="back-btn">← Página Principal</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    <!-- Nav -->
+    <nav class="navi">
+      <button class="nav-btn" onclick="goTo('noti')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="20px"></span> Noticias</button>
+      <button class="nav-btn" onclick="goTo('gyro')"><span class="icon"><img src="https://cdn-icons-png.flaticon.com/512/2619/2619182.png" height="20px"></span> Ruletas</button>
+      <!--<button class="nav-btn" onclick="goTo('rulesofnatures')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/070/080/381/small/watercolor-yellow-ruler-free-png.png" height="9px"></span> Reglas</button>-->
+      <button class="nav-btn" onclick="goTo('guia')"><span class="icon"><img src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/cd/latest/20211230005045/Artwork_mapa_pueblo.png/640px-Artwork_mapa_pueblo.png" height="19px"></span> Guía</button>
+      <button class="nav-btn" onclick="goTo('recomba')"><span class="icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/050/702/533/small/rules-checklist-with-requirements-principles-and-strategy-illustration-png.png" height="20px"></span> Reglas Combate</button>
+      <button class="nav-btn" onclick="goTo('comba')"><span class="icon"><img src="https://pbs.twimg.com/media/GFwTGlgWYAA0KdD.png" height="20px"></span> Combates</button>
+    </nav>
+  </header>
+
+  <!-- ══ MAIN ══ -->
+  <main>
+
+    <!-- NOTICIAS -->
+    <div class="section-card" id="noti">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/023/492/515/small/3d-news-icon-png.png" height="40px"></div>
+        <h2>Noticias</h2>
+      </div>
+      <div class="section-body">
+        <div class="news-carousel">
+          <div class="news-track">
+            <div class="news-slide active">
+              <span class="news-tag">Actualización</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Fecha del Locke</h3>
+              <p>!La cuarta edicion del egolocke se hara el 28 de Diciembre de 2026¡</p>
+            </div>
+            <div class="news-slide">
+              <span class="news-tag">Info</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Primer Combate Oficial</h3>
+              <p>El primer combate se hara el 8 de Enero de 2027.</p>
+            </div>
+            <div class="news-slide">
+              <span class="news-tag">Evento</span>
+              <div class="news-date"><img src="https://i.imgur.com/sfTPAyO.png" height="16px"> Próximamente</div>
+              <h3>Asignacion de equipos</h3>
+              <p>A inicios de diciembre se asignaran los equipos.</p>
+            </div>
+          </div>
+          <div class="news-controls">
+            <button class="news-arrow" onclick="prevNews()">&#8592;</button>
+            <div class="news-dots" id="newsDots"></div>
+            <button class="news-arrow" onclick="nextNews()">&#8594;</button>
+          </div>
+          <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RULETAS -->
+    <div class="section-card" id="gyro">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://cdn-icons-png.flaticon.com/512/2619/2619182.png" height="37px"></div>
+        <h2>Ruletas</h2>
+      </div>
+      <div class="section-body">
+        <div class="roulette-grid">
+          <a href="ruelaegolock4/Rulelock4.html" class="roulette-btn"> Johto/Kanto</a>
+        </div>
+        <br>
+        <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      </div>
+    </div>
+
+
+    <!-- REGLAS DEL LOCKE -->
+     <!--
+    <div class="section-card" id="rulesofnatures">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/070/080/381/small/watercolor-yellow-ruler-free-png.png" height="11px"></div>
+        <h2>Reglas del Locke</h2>
+        <button class="nav-btn" onclick="goTo('juicio')">Sección Juicios (1 a 3)</button>
+        <button class="nav-btn" onclick="goTo('regen')">Sección general (4 a 16)</button>
+        <button class="nav-btn" onclick="goTo('requi')">Sección Equipos (17 a 20 )</button>
+        <button class="nav-btn" onclick="goTo('reotra')">Sección Otras cosas (21 a 22)</button>
+      </div>
+      <div class="section-body">
+        <ul class="rules-list">
+          <li id="juicio"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">1</button></span>Si rompes una regla se le hará un juicio.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">2</button></span>Si un jugador inculpa a otro jugador se les hará un juicio a los dos, pero si el jugador que inculpo, miente se le dará una sanción a él y a su equipo. </li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">3</button></span>Los juicios se harán en discord con un juez, los involucrados y la opción de abogado es opcional, pero se tiene que avisar con antelación.</li>
+          <li id="regen"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">4</button></span>Ningún truco está permitido.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">5</button></span>Tienen 25 vidas máximas + la vida 0, por lo tanto, si uno pierde una vida se les descontara a los dos.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">6</button></span>Cuando se pierden todas las vidas, hay posibilidad de tirar una ruleta para hacer un wipe con 10 vidas para el equipo. </li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">7</button></span>Solo se captura el primer pokémon de ruta.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">8</button></span>Si o si tienes que ponerle un nombre al pokémon que captures. </li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">9</button></span>Solo se puede capturar un pokémon de una línea evolutiva, si sale un pokémon en un fósil, huevo o pokémon de intercambio repetido o es de una línea evolutiva repetida, se tiene que liberar.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">10</button></span>No se pueden vender pociones, pokeballs, caramelos raros u objetos de curación o de captura, pero si objetos que sirvan para vender u objetos inútiles.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">12</button></span>No se pueden usar objetos para mejorar estadísticas, hasta terminar johto, pero en Kanto solo se pueden usar 1 por pokémon, hasta después del último gimnasio después no hay limite para usar esos objetos.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">13</button></span>Después de terminar un gimnasio, antes de la liga pokémon y antes del combate de rojo, si o si tienen que girar la ruleta.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">14</button></span>Para reiniciar un combate injusto se debe avisar con antelación en él discord y la administración lo analizara.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">15</button></span>Si se pueden usar objetos competitivos en el equipo.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">16</button></span>No se pueden capturar, obtener y usar pokémones legendarios. Si se obtiene atreves de huevo, fósil o intercambio, tienen que liberar ese pokémon. </li>
+          <li id="requi"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">17</button></span>Los dos integrantes deben tener de diferencia un gimnasio, no más solo uno.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">18</button></span>Los equipos no pueden ingresar a los canales del discord del otro equipo.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">19</button></span>No se puede traicionar al equipo.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">20</button></span>No pueden saber sobre lo que hace el equipo rival.</li>
+          <li id="reotra"><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">21</button></span>No se puede hacer mg o spoiler de los movimientos, habilidades o pokemones de los equipos de los otros jugadores o del jugador, después de la liga.</li>
+          <li><span class="rule-num"><button class="bot-btn" onclick="goTo('rulesofnatures')">22</button></span>Si, se va a poder grabar o transmitir el Locke por YouTube, Twitch o alguna plataforma parecida.</li>
+        </ul>
+      <br>
+      <button class="nav-btn" onclick="goTo('rulesofnatures')">Secciones</button>
+      <br>
+      <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      </div>
+    </div>
+  -->
+
+    <!-- GUIA -->
+    <div class="section-card" id="guia">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/c/cd/latest/20211230005045/Artwork_mapa_pueblo.png/640px-Artwork_mapa_pueblo.png" height="25px"></div>
+        <h2>Guía</h2>
+      </div>
+      <div class="section-body">
+        <div class="gym-grid">
+          <div class="gym-region">
+            <h3> Gimnasios de Johto</h3>
+            <div class="gym-item"><span>1. Pegaso — Ciudad Malva</span><span class="gym-level">Nv. 9-13</span></div>
+            <div class="gym-item"><span>2. Antón — Ciudad Azalea</span><span class="gym-level">Nv. 15–17</span></div>
+            <div class="gym-item"><span>3. Blanca — Ciudad Trigal</span><span class="gym-level">Nv. 17–19</span></div>
+            <div class="gym-item"><span>4. Morti — Ciudad Iris</span><span class="gym-level">Nv. 21–25</span></div>
+            <div class="gym-item"><span>5. Aníbal — Ciudad Orquídea</span><span class="gym-level">Nv. 29–31</span></div>
+            <div class="gym-item"><span>6. Yazmín — Ciudad Olivo</span><span class="gym-level">Nv. 30–34</span></div>
+            <div class="gym-item"><span>7. Fredo — Pueblo Caoba</span><span class="gym-level">Nv. 30–34</span></div>
+            <div class="gym-item"><span>8. Débora — Ciudad Endrino</span><span class="gym-level">Nv. 38–40</span></div>
+          </div>
+
+          <div class="gym-region">
+            <h3> Alto mando</h3>
+            <div class="gym-item"><span>9. Mento - Liga Pokémon </span><span class="gym-level">Nv. 40-41</span></div>
+            <div class="gym-item"><span>10. Koga - Liga Pokémon </span><span class="gym-level">Nv. 41–43</span></div>
+            <div class="gym-item"><span>11. Bruno - Liga Pokémon </span><span class="gym-level">Nv. 43–46</span></div>
+            <div class="gym-item"><span>12. Karen - Liga Pokémon </span><span class="gym-level">Nv. 42–47</span></div>
+            <div class="gym-item"><span>13. Lance - Liga Pokémon </span><span class="gym-level">Nv. 46–50</span></div>
+          </div>
+
+          <div class="gym-region">
+            <h3> Gimnasios y Campeon de Kanto</h3>
+            <div class="gym-item"><span>14. Brock — Ciudad Plateada</span><span class="gym-level">Nv. 51–54</span></div>
+            <div class="gym-item"><span>15. Misty — Ciudad Celeste</span><span class="gym-level">Nv. 49–54</span></div>
+            <div class="gym-item"><span>16. Tte. Surge — Carmín</span><span class="gym-level">Nv. 47–53</span></div>
+            <div class="gym-item"><span>17. Erika — Ciudad Azulona</span><span class="gym-level">Nv. 51–56</span></div>
+            <div class="gym-item"><span>18. Janine — Ciudad Fucsia</span><span class="gym-level">Nv. 44–50</span></div>
+            <div class="gym-item"><span>19. Sabrina — Ciudad Azafrán</span><span class="gym-level">Nv. 53–55</span></div>
+            <div class="gym-item"><span>20. Blaine — Islas Espuma</span><span class="gym-level">Nv. 54–59</span></div>
+            <div class="gym-item"><span>21. Azul — Ciudad Verde</span><span class="gym-level">Nv. 55–60</span></div>
+            <div class="gym-item"><span>22.Rojo — Monte Plateado</span><span class="gym-level">Nv. 80–88</span></div>
+          </div>
+        </div>
+        <br>
+        <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      </div>
+    </div>
+
+    <!-- REGLAS DE COMBATE -->
+    <div class="section-card" id="recomba">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://static.vecteezy.com/system/resources/thumbnails/050/702/533/small/rules-checklist-with-requirements-principles-and-strategy-illustration-png.png" height="35px"></div>
+        <h2>Reglas de los Combates</h2>
+      </div>
+      <div class="section-body">
+        <ul class="rules-list">
+          <li><span class="rule-num">1</span> Los combates serán en formato dobles.</li>
+          <li><span class="rule-num">2</span> Las rondas van a ser al mejor de 3.</li>
+          <li><span class="rule-num">3</span> Se podrán usar objetos de combate.</li>
+          <li><span class="rule-num">4</span> Antes de cada combate tienen que banear 2 Pokémon distintos.</li>
+          <li><span class="rule-num">5</span> No se puede usar un legendario o singular.</li>
+          <li><span class="rule-num">6</span>Los combates se harán después de obtener el inicial, después de la liga pokémon y después de vencer a Rojo.</li>
+          <li><span class="rule-num">7</span>El primer combate no cuenta, en el caso de que un equipo gane los 2 los combates.</li>
+        </ul>
+        <br>
+        <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      </div>
+    </div>
+
+    <!-- COMBATES -->
+    <div class="section-card" id="comba">
+      <div class="section-header">
+        <div class="section-icon"><img src="https://pbs.twimg.com/media/GFwTGlgWYAA0KdD.png" height="30px"></div>
+        <h2>Combates</h2>
+        <div class="combat-card">
+            <div class="combat-num"> Equipo Oro </div>
+            <div class="combat-info">
+              <div class="label">Integrantes:</div>
+              <div class="value">1. ...</div>
+              <div class="value">2. ...</div>
+            </div>
+            <div class="combat-vs">VS</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Integrantes</div>
+              <div class="value">1. ...</div>
+              <div class="value">2. ...</div>
+            </div>
+             <div class="equip-plata"> Equipo Plata </div>  
+          </div>
+      </div>
+      <div class="section-body">
+        <div class="combat-list">
+          <div class="combat-card">
+            <div class="combat-num">C1</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+          <div class="combat-card">
+            <div class="combat-num">C2</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+          <div class="combat-card">
+            <div class="combat-num">C3</div>
+            <div class="combat-info">
+              <div class="label">Equipo Ganador</div>
+              <div class="value">—</div>
+            </div>
+            <div class="combat-vs">0 VS 0</div>
+            <div class="combat-info" style="text-align:right">
+              <div class="label">Equipo Perdedor</div>
+              <div class="value">—</div>
+            </div>
+          </div>
+            <div class="combat-card">
+            <div class="combat-info">
+            </div>
+            <div class="combat-gana">Equipo ganador: 
+               <div class="combat-win"> --- </div>
+            </div>
+            <div class="combat-info" style="text-align:right">
+            </div>
+          </div>
+        </div>
+        <br>
+        <button class="back-btn" onclick="goTo('inicio')"><span class="icon">⌂</span> Inicio</button>
+      </div>
+      <br>
+    </div>
+
+  </main>
+
+  <footer>
+    Kiztsiot_inc &copy; 2026-2027
+  </footer>
+<script src="ScriptRE4.js"></script>
+</body>
+</html>
